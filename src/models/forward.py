@@ -1,13 +1,9 @@
 import numpy as np
 
 
-class Forward:
-    def __init__(self, x, y, kernel):
-        self.x = x
-        self.y = y
-        self.kernel = kernel
-        
-    def conv_layer(self, image, kernel, stride=1):
+class Forward:        
+    @staticmethod
+    def conv_layer( image, kernel, stride=1):
         image  = np.array(image)
         x, y = image.shape
             
@@ -28,8 +24,8 @@ class Forward:
                     
         return output
 
-    
-    def maxPooling(self, image, pool_size=(2, 2), stride=2):
+    @staticmethod
+    def maxPooling( image, pool_size=(2, 2), stride=2):
         image = np.array(image)
         x, y = image.shape
             
@@ -46,9 +42,15 @@ class Forward:
                     
         return output
     
-    def flatten(self, image):
+    @staticmethod
+    def flatten( image):
         return image.flatten()
      
+    @staticmethod
+    def fully_connected( image, weights, bias):
+        image = np.array(image)
+        result = np.dot(image, weights) + bias
+        return result
                
                 
                 
