@@ -46,11 +46,11 @@ class Forward:
     def flatten( image):
         return image.flatten()
      
-    @staticmethod
-    def fully_connected( image, weights, bias):
-        image = np.array(image)
-        result = np.dot(image, weights) + bias
-        return result
+    # @staticmethod
+    # def fully_connected( image, weights, bias):
+    #     image = np.array(image)
+    #     result = np.dot(image, weights) + bias
+    #     return result
                
                 
                 

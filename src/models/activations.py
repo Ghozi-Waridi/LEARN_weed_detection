@@ -25,6 +25,7 @@ class ActivationFunctions:
     def backward_sigmoid(x):
         sig = ActivationFunctions.sigmoid(x)
         return sig * (1 - sig)
+    
     @staticmethod
     def backward_tanh(x):
         return 1 - np.tanh(x) ** 2
