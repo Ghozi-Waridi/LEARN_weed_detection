@@ -18,13 +18,12 @@ class ActivationFunctions:
         return np.tanh(x)
     
     @staticmethod
-    def backward_relu(x):
-        return np.where(x > 0, 1, 0)
+    def backward_relu(grad_output, relu_input):
+        return grad_output * (relu_input > 0).astype(float)
     
     @staticmethod
-    def backward_sigmoid(x):
-        sig = ActivationFunctions.sigmoid(x)
-        return sig * (1 - sig)
+    def backward_sigmoid(grad_output, sig_output):
+        return grad_output * sig_output * (1 - sig_output)
     
     @staticmethod
     def backward_tanh(x):
